@@ -1,0 +1,55 @@
+@use 'base.scss' as *;
+
+.body {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    padding-top: 30px;
+
+    nav {
+        margin-bottom: 30px;
+
+        a {
+            display: flex;
+            width: fit-content;
+            margin: 0 auto;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: none;
+            @include montserrat(900);
+            font-size: 2.5rem;
+
+
+            .second-logo {
+                color: gray;
+                max-width: 0;
+                overflow: hidden;
+                transition:
+                    max-width 0.5s ease-in-out;
+            }
+
+            .hide-letter {
+                transition:
+                    opacity 0.3s ease-in-out;
+            }
+
+            .main-logo,
+            .uniq-letter {
+                color: $aqua;
+            }
+
+            &:hover {
+                .hide-letter {
+                    opacity: 0;
+                }
+
+                .second-logo {
+                    max-width: 1000px;
+                }
+            }
+        }
+    }
+}

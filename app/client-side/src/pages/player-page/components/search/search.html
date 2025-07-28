@@ -1,0 +1,27 @@
+<span class="search-span">
+    <input type="text">
+    <button>
+        @if(false){
+        <img src="/assets/images/searchIcon.png" alt="Найти">
+        }
+        @if(true){
+        <span class="spinner-span">
+            <img class="stop-btn" src="/assets/images/closeIcon.png" alt="" srcset="">
+            <div class="spinner"></div>
+        </span>
+        }
+        @if(false){
+        <img class="agree-btn" title="Подтвердите выбор" src="/assets/images/agreeIcon.png" alt="Найти">
+        }
+    </button>
+</span>
+@if(false){
+<button class="mobile-btn">
+    @if(true){
+    <img class="stop-btn" src="/assets/images/closeIcon.png" alt="x" srcset="">
+    }
+    @if(false){
+    <img class="agree-btn" title="Подтвердите выбор" src="/assets/images/agreeIcon.png" alt="Найти">
+    }
+</button>
+}

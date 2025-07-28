@@ -1,0 +1,101 @@
+.search-span {
+    margin: 0 auto;
+    display: flex;
+    width: clamp(330px, 33vw, 600px);
+    border-radius: 5px;
+    background-color: white;
+    justify-content: space-between;
+    padding: 0 10px;
+    box-sizing: border-box;
+    height: 45px;
+
+    input {
+        border: none;
+        outline: none;
+        padding: 5px;
+        box-sizing: border-box;
+        width: 70%;
+    }
+
+    button {
+        aspect-ratio: 1;
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+
+        * {
+            aspect-ratio: 1;
+            height: 85%;
+            box-sizing: border-box;
+        }
+
+        .spinner-span {
+            display: grid;
+            place-items: center;
+            grid-template: 1fr / 1fr;
+
+            .spinner {
+                grid-area: 1/1/2/2;
+                border: 4px solid rgba(255, 255, 255, 0.3);
+                border-color: black black transparent black;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+                margin: auto;
+            }
+            .stop-btn {
+                grid-area: 1/1/2/2;
+                height: 12px !important;
+                opacity: 0;
+                transition: opacity 0.2s ease-in-out;
+            }
+
+            &:hover{
+                .stop-btn{
+                    opacity: 1;
+                }
+            }
+        }
+
+        .agree-btn {
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.1)
+            }
+        }
+    }
+}
+.mobile-btn{
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    bottom: 30px;
+    background-color: white;
+    border-radius: 5px;
+    aspect-ratio: 1;
+    width:45px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    *{
+        aspect-ratio: 1;
+        box-sizing: border-box;
+        height:50%;
+    }
+}
