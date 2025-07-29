@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { Player } from './components/player/player';
+import { Component } from '@angular/core';
 import { Search } from "./components/search/search";
+import { Player } from './components/player/player';
+
 
 @Component({
   selector: 'app-player-page',
-  imports: [Player,Search],
+  imports: [Search,Player],
   standalone: true,
   templateUrl: './player-page.html',
   styleUrl: './player-page.scss'
 })
-export class PlayerPage{
+export class PlayerPage {
+
 }

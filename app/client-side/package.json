@@ -32,6 +32,8 @@
     "express": "^5.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "video.js": "^8.23.3",
+    "videojs-youtube": "^3.0.1",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
@@ -41,6 +43,7 @@
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^20.17.19",
+    "@types/youtube": "^0.1.2",
     "jasmine-core": "~5.8.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

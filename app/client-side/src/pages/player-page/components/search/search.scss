@@ -1,13 +1,13 @@
 .search-span {
     margin: 0 auto;
     display: flex;
-    width: clamp(330px, 33vw, 600px);
+    width: clamp(330px, 50vw, 750px);
     border-radius: 5px;
     background-color: white;
     justify-content: space-between;
     padding: 0 10px;
     box-sizing: border-box;
-    height: 45px;
+    height: 40px;
 
     input {
         border: none;

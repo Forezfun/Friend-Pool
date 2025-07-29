@@ -8,6 +8,9 @@
       "node"
     ]
   },
+    "files": [
+    "src/types/youtube.d.ts"
+  ],
   "include": [
     "src/**/*.ts"
   ],
