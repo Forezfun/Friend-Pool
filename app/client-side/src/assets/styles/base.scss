@@ -7,5 +7,18 @@
   font-style: normal;
 }
 
+button,a {
+  cursor: pointer;
+  font-family: Montserrat;
+  border: none;
+  border-radius: 10px;
+}
+.animateBtn{
+  transition: transform 0.2s ease;
+  &:hover{
+    transform: translate(0,-5px);
+  }
+}
 
-$aqua:#00eeff;
+
+$aqua: #00eeff;

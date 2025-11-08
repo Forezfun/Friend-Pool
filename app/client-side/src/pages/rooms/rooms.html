@@ -1,0 +1,44 @@
+<span class="roomsWrapper">
+    <h2>Комнаты</h2>
+    <span class="roomsSpan">
+        @for (room of rooms$ | async;track room.id){
+        <button class="roomCard animateBtn">{{room.name}}</button>
+        }
+        @empty{
+        <p>Нет доступных комнат</p>
+        }
+    </span>
+    <button (click)="openRoomModule()" class="roomCard animateBtn createRoomBtn">Создать</button>
+</span>
+
+@if (showRoomModule){
+<span class="createRoomSpan">
+    <span class="wrapper">
+        <button (click)="closeRoomModule()" class="closeBtn">
+            <img src="/assets/images/closeIcon.png" alt="x">
+        </button>
+        <span class="createRoomModule">
+            <h2>Создать комнату</h2>
+            <form [formGroup]="createRoomForm" (ngSubmit)="createRoom()" class="createRoomForm">
+                <span class="inputModule">
+                    <label for="name">Название</label>
+                    <input formControlName="name" id="name" type="text">
+                </span>
+                <span class="inputModule">
+                    <label for="goal">Цель</label>
+                    <input formControlName="goal" id="goal" type="text">
+                </span>
+                <span class="inputModule">
+                    <label for="sum">Сумма</label>
+                    <input formControlName="sum" id="sum" type="text">
+                </span>
+                <span class="inputModule">
+                    <label for="details">Реквизиты</label>
+                    <textarea formControlName="details" id="details"></textarea>
+                </span>
+                <button type="submit">Создать</button>
+            </form>
+        </span>
+    </span>
+</span>
+}

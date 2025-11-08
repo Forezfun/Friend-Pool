@@ -1,0 +1,10 @@
+@use 'base.scss' as *;
+a{
+    font-family: Montserrat;
+    text-decoration: none;
+    color:black;
+    font-size:2em;
+    margin: 30px auto;
+    display: block;
+    width:fit-content;
+}

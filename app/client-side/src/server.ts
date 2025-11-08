@@ -1,32 +1,41 @@
-import {
-  AngularNodeAppEngine,
-  createNodeRequestHandler,
-  isMainModule,
-  writeResponseToNodeResponse,
-} from '@angular/ssr/node';
+import axios from 'axios';
 import express from 'express';
 import { join } from 'node:path';
+import {
+  AngularNodeAppEngine,
+  writeResponseToNodeResponse,
+} from '@angular/ssr/node';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
-
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
-/**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/{*splat}', (req, res) => {
- *   // Handle API request
- * });
- * ```
- */
+// --- 1. Проксирующий endpoint для FastAPI ---
+app.use('/api', async (req, res, next) => {
+  try {
+    const url = `http://localhost:5000${req.path}`; // проксируем путь
+    const response = await axios({
+      method: req.method as any,
+      url: url,
+      headers: {
+        ...req.headers,
+        host: 'localhost:5000',
+        cookie: req.headers.cookie || '' // передаем куки
+      },
+      data: req.body
+    });
 
-/**
- * Serve static files from /browser
- */
+    res.status(response.status).send(response.data);
+  } catch (err: any) {
+    if (err.response) {
+      res.status(err.response.status).send(err.response.data);
+    } else {
+      next(err);
+    }
+  }
+});
+
+// --- 2. Статика ---
 app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',
@@ -35,9 +44,7 @@ app.use(
   }),
 );
 
-/**
- * Handle all other requests by rendering the Angular application.
- */
+// --- 3. SSR Angular ---
 app.use((req, res, next) => {
   angularApp
     .handle(req)
@@ -47,22 +54,8 @@ app.use((req, res, next) => {
     .catch(next);
 });
 
-/**
- * Start the server if this module is the main entry point.
- * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
- */
-if (isMainModule(import.meta.url)) {
-  const port = process.env['PORT'] || 4000;
-  app.listen(port, (error) => {
-    if (error) {
-      throw error;
-    }
-
-    console.log(`Node Express server listening on http://localhost:${port}`);
-  });
-}
-
-/**
- * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
- */
-export const reqHandler = createNodeRequestHandler(app);
+// --- 4. Запуск сервера ---
+const port = process.env['PORT'] || 4000;
+app.listen(port, () => {
+  console.log(`Node Express server listening on http://localhost:${port}`);
+});

@@ -1,0 +1,128 @@
+@use 'base.scss' as *;
+
+.roomsWrapper{
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    width:clamp(330px,33vw,500px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Montserrat';
+    
+    h2{
+        text-align: center;
+        
+    }
+    .roomsSpan{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-height: 200px;
+        overflow-y: scroll;
+        padding:10px;
+        box-sizing: border-box;
+    }
+    .roomCard{
+        width:100%;
+        padding: 15px;
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 5px black;
+        background-color: white;
+    }
+}
+
+.createRoomSpan{
+    transition: opacity 0.5s ease-in-out;
+    width:100vw;
+    height: 100vh;
+    display: flex;
+    background-color: rgb(0,0,0,0.8);
+    position: absolute;
+    z-index:1;
+    justify-content: center;
+    align-items: center;
+    
+    .wrapper{
+        display: grid;
+        grid-template: 1fr/1fr;
+        width:33%;
+
+        .closeBtn,.createRoomModule{
+            grid-area: 1/1/2/2;
+        }
+        .closeBtn{
+            z-index:2;
+            aspect-ratio: 1;
+            width:25px;
+            background: none;
+            justify-self: end;
+            margin-top: 10px;
+            margin-right: 10px;
+            img{
+                width: 100%
+            }
+        }
+        .createRoomModule{
+            z-index:1;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            box-sizing: border-box;
+            padding: 40px;
+            align-items: center;
+            width:100%;
+            gap:15px;
+            background-color: white;
+        
+            h2{
+                font-family: 'Montserrat';
+                color:black;
+                text-align: center
+            };
+            
+            button{
+                padding: 15px;
+                width:100%;
+                transition: all 0.3s ease-in-out;
+
+                &:hover{
+                    background-color: black;
+                    color:white;
+                }
+            }
+            .createRoomForm{
+                display: flex;
+                flex-direction: column;
+                gap:10px;
+                width:100%;
+            
+                .inputModule{
+                    display: flex;
+                    flex-direction: column;
+                    gap:5px;
+                    font-family: 'Montserrat';
+                
+                
+                    label{
+                        color:gray;
+                        
+                    }
+                    input,textarea{
+                        padding: 15px;
+                        border-radius: 10px;
+                        outline: none;
+                        resize: vertical;
+                        max-height:100px;
+                    }
+                }
+            }
+        }
+    }   
+}   
