@@ -1,18 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { baseServerUrl } from '.';
 import { Observable } from 'rxjs';
+import { baseServerUrl } from '.';
 export interface roomScreenInformation{
   name:String,
   id:Number
 }
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class RoomService {
-
+  
   constructor(
     private http:HttpClient
   ){}

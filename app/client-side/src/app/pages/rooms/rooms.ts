@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Inject, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
-import { roomScreenInformation, RoomService } from '../../services/roomService';
+import { roomScreenInformation, RoomService } from '../../services/room-service';
 import { Observable } from 'rxjs';
 import { AsyncPipe, isPlatformBrowser } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -47,4 +47,3 @@ export class Rooms implements OnInit,AfterViewInit {
     this.showRoomModule=false
   }
 }
-

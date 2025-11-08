@@ -7,8 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss",
-          "standalone": true
+          "style": "scss"
         }
       },
       "root": "",
@@ -29,11 +28,6 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "assets"
-              },
-              {
-                "glob": "favicon.ico",
-                "input": "public",
-                "output": "."
               }
             ],
             "styles": [
@@ -43,11 +37,6 @@
               "includePaths": [
                 "src/assets/styles"
               ]
-            },
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
             }
           },
           "configurations": {
@@ -69,13 +58,7 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.development.ts"
-                }
-              ]
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -109,16 +92,16 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "assets"
-              },
-              {
-                "glob": "favicon.ico",
-                "input": "public",
-                "output": "."
               }
             ],
             "styles": [
               "src/assets/styles/fix-padding.scss"
-            ]
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/styles"
+              ]
+            }
           }
         }
       }

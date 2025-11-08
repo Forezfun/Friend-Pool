@@ -1,13 +1,12 @@
 {
-  "name": "FriendPool",
+  "name": "friend-pool",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:FriendPool": "node dist/FriendPool/server/server.mjs"
+    "test": "ng test"
   },
   "prettier": {
     "overrides": [
@@ -26,30 +25,16 @@
     "@angular/core": "^20.1.0",
     "@angular/forms": "^20.1.0",
     "@angular/platform-browser": "^20.1.0",
-    "@angular/platform-server": "^20.1.0",
     "@angular/router": "^20.1.0",
-    "@angular/ssr": "^20.1.1",
-    "@taiga-ui/cdk": "^4.60.0",
-    "@taiga-ui/core": "^4.60.0",
-    "@taiga-ui/icons": "^4.60.0",
-    "@taiga-ui/kit": "^4.60.0",
-    "axios": "^1.13.2",
-    "express": "^5.1.0",
     "rxjs": "~7.8.0",
-    "taiga-ui": "^4.60.0",
     "tslib": "^2.3.0",
-    "video.js": "^8.23.3",
-    "videojs-youtube": "^3.0.1",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
     "@angular/build": "^20.1.1",
     "@angular/cli": "^20.1.1",
     "@angular/compiler-cli": "^20.1.0",
-    "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
-    "@types/node": "^20.17.19",
-    "@types/youtube": "^0.1.2",
     "jasmine-core": "~5.8.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

@@ -5,6 +5,7 @@ from app.routers import rooms
 from fastapi.middleware.cors import CORSMiddleware
 from app.helpers.tokens import decode_access_token
 from starlette.responses import Response
+print()
 app = FastAPI()
 routers = [google.router, rooms.router]
 
@@ -16,9 +17,9 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,          
-    allow_credentials=True,          
-    allow_methods=["*"],             
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
     allow_headers=["*"],            
 )
 
